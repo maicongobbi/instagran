@@ -23,20 +23,21 @@ import { trigger } from '@angular/animations';
         opacity: 1
       })),
       transition('void => criado', [
-        style({ opacity: 0, transform: 'translate(50px, 0)' }),
+        style({ opacity: 0, transform: 'translate(50px, 0)' }), //inicialmente nesta posicao
 
         //0 void ----X----------------------------X--X--X-------------------X criado 1.5s//
         animate('1.5s 0s ease-in-out', keyframes([
-          style({ offset: 0.15, opacity: 1, transform: 'translateX(0)'}),
-          style({ offset: 0.86, opacity: 1, transform: 'translateX(0)'}),
+          style({ offset: 0.15, opacity: 0.6, transform: 'translateX(0)'}),
+          style({ offset: 0.86, opacity: 0.7, transform: 'translateX(0)'}),
 
-          style({ offset: 0.88, opacity: 1, transform: 'translateY(-10px)'}),
+          style({ offset: 0.88, opacity: 0.81, transform: 'translateY(-10px)'}),
           style({ offset: 0.90, opacity: 1, transform: 'translateY(10px)'}),
           style({ offset: 0.92, opacity: 1, transform: 'translateY(-10px)'}),
           style({ offset: 0.94, opacity: 1, transform: 'translateY(10px)'}),
           style({ offset: 0.96, opacity: 1, transform: 'translateY(-10px)'}),
           style({ offset: 0.98, opacity: 1, transform: 'translateY(10px)'})
         ])) //duração, delay e aceleração
+        // offset  vai de 0 - 1 % ou seja na porcentagem X ele realiza algo
       ])
     ])
   ]
@@ -57,10 +58,10 @@ export class AcessoComponent implements OnInit {
   }
 
   public inicioDaAnimacao(): void {
-    console.log('início da animação')
+ /*    console.log('início da animação') */
   }
 
   public fimDaAnimacao(): void {
-    console.log('fim da animação')
+/*     console.log('fim da animação') */
   }
 }
