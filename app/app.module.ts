@@ -1,3 +1,5 @@
+import { Bd } from './bd.service';
+import { Progresso } from './progresso.service';
 import { AutenticacaoGuard } from './autenticacao-guard.service';
 import { AcessoComponent } from "./acesso/acessoComponent";
 import { BrowserModule } from "@angular/platform-browser";
@@ -14,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
 import { RouterModule } from "@angular/router";
 import { ROUTES } from "./app.routes";
+import { IncluirPublicacoesComponent } from './home/incluir-publicacoes/incluir-publicacoes.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { ROUTES } from "./app.routes";
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    PublicacoesComponent
+    PublicacoesComponent,
+    IncluirPublicacoesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,7 @@ import { ROUTES } from "./app.routes";
     BrowserAnimationsModule //tem que importar aqui e ajeitar o polifills - para navegadores antigos
     , RouterModule.forRoot(ROUTES)
   ],
-  providers: [Autenticacao, AutenticacaoGuard],
+  providers: [ Autenticacao, AutenticacaoGuard, Bd, Progresso ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
