@@ -1,0 +1,14 @@
+<!-- <div class="banner-background">
+<img src="/assets/banner-acesso/img_1.png" [@banner]="estado">
+ com o @banner faz a conexão da animação com o banner
+ele recebe o estado pq é o estado inicial que qeuremos desta animação
+
+</div> -->
+
+<div class="banner-background">
+  <img
+      *ngFor="let imagem of imagens"
+      [src]="imagem.url"
+      [@banner]="imagem.estado"
+  />
+</div>
