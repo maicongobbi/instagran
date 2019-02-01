@@ -1,6 +1,8 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
+
+    <!-- if do pendente -->
     <div class="modal-content" *ngIf="progressoPublicacao === 'pendente'">
       <form [formGroup]="formulario" (ngSubmit)="publicar()">
         <div class="modal-header">

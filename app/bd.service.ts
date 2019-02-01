@@ -14,7 +14,7 @@ export class Bd {
         firebase.database().ref(`publicacoes/${btoa(publicacao.email)}`)
             .push( { titulo: publicacao.titulo } ) // insercao != do set
             .then((resposta: any) => {
-
+// key é a chave única do documento inserido
                 let nomeImagem = resposta.key
 
                 firebase.storage().ref()
@@ -47,9 +47,13 @@ export class Bd {
             //consultar as publicações (database)
             firebase.database().ref(`publicacoes/${btoa(emailUsuario)}`)
             .orderByKey()
-            .once('value')
-            .then((snapshot: any) => {
-                //console.log(snapshot.val())
+              .once('value')// once faz uma unica consulta
+              // consultando o evento VALUE
+              //on é como se fosse um listener escutando as mudanças se fosse usado, como não é o caso
+              .then((snapshot: any) =>
+              {
+              // seria uma foto do banco nesse momento, ou seja  a consulta em si, pode retonar n* elementos
+                console.log(snapshot.val())
 
                 let publicacoes: Array<any> = [];
 
