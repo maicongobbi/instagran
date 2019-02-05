@@ -19,7 +19,6 @@ export class PublicacoesComponent implements OnInit {
   ngOnInit()
   {
     // recupera os dados do usuário autenticado
-
     firebase.auth().onAuthStateChanged((user) => {
       this.email = user.email
 
